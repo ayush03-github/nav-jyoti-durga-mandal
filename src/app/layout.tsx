@@ -6,8 +6,8 @@ import { Footer } from '@/components/Footer';
 import { SnapchatMobileNav } from '@/components/SnapchatMobileNav';
 
 export const metadata: Metadata = {
-  title: 'Nav Jyoti Durga Mandal (NJDM) | Bhajan, Aarti, Chalisa & Mantra',
-  description: 'Explore Hindi bhajans, aartis, chalisas, mantras, stotrams and shloks from Nav Jyoti Durga Mandal. Sacred devotional collection presented cleanly.',
+  title: 'Nav Jyoti Durga Mandal (NJDM) | Bhajan, Aarti & Chalisa',
+  description: 'Explore Hindi bhajans, aartis and chalisas from Nav Jyoti Durga Mandal. Sacred devotional collection presented cleanly.',
   keywords: [
     'Nav Jyoti Durga Mandal',
     'NJDM',
@@ -25,9 +25,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Nav Jyoti Durga Mandal' }],
   metadataBase: new URL('https://njdm.org'),
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'Nav Jyoti Durga Mandal (NJDM) | Devotional Chants & Lyrics',
-    description: 'Explore authentic Hindi bhajans, aartis, chalisas and mantras.',
+    description: 'Explore authentic Hindi bhajans, aartis and chalisas.',
     siteName: 'Nav Jyoti Durga Mandal',
     locale: 'hi_IN',
     type: 'website',
@@ -35,6 +40,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    google: 'notranslate',
   },
 };
 
@@ -44,8 +52,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hi">
+    <html lang="hi" translate="no" className="notranslate">
       <head>
+        <meta name="google" content="notranslate" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

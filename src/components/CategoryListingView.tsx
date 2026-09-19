@@ -57,9 +57,10 @@ export const CategoryListingView: React.FC<CategoryListingViewProps> = ({
         const inDeity = item.deity.toLowerCase().includes(q);
         const inDesc = item.description.toLowerCase().includes(q);
         const inLyrics = item.lyrics.toLowerCase().includes(q);
+        const inLyricsEn = item.lyricsEn ? item.lyricsEn.toLowerCase().includes(q) : false;
         const inKeywords = item.keywords.some(k => k.toLowerCase().includes(q));
 
-        if (!inTitle && !inEngTitle && !inDeity && !inDesc && !inLyrics && !inKeywords) {
+        if (!inTitle && !inEngTitle && !inDeity && !inDesc && !inLyrics && !inLyricsEn && !inKeywords) {
           return false;
         }
       }

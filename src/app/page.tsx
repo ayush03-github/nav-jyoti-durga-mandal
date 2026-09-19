@@ -6,23 +6,15 @@ import { useLanguage } from '@/lib/i18n';
 import { HeroSection } from '@/components/HeroSection';
 import { ContentCard } from '@/components/ContentCard';
 import { DeityCard } from '@/components/DeityCard';
-import { FestivalCard } from '@/components/FestivalCard';
 import { 
-  getFeaturedContent, 
   getContentByType, 
-  getAllDeities, 
-  getAllFestivals 
+  getAllDeities 
 } from '@/lib/data';
 import { 
-  Sparkles, 
   Flame, 
   BookOpen, 
   Music, 
-  ChevronRight, 
-  ShieldCheck, 
-  HeartHandshake,
-  Sun,
-  ScrollText
+  ChevronRight 
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -32,16 +24,6 @@ export default function HomePage() {
   const aartis = getContentByType('aarti').slice(0, 4);
   const chalisas = getContentByType('chalisa').slice(0, 4);
   const deities = getAllDeities().filter(d => d.featured !== false).slice(0, 6);
-  const festivals = getAllFestivals().filter(f => f.featured !== false).slice(0, 4);
-
-  const categories = [
-    { titleEn: 'Bhajans', titleHi: 'भजन संग्रह', descEn: 'Devotional songs dedicated to divine deities', descHi: 'प्रभु भक्ति, लीला एवं संकीर्तन के मधुर भजन', href: '/bhajans', icon: Music, color: 'border-saffron-300' },
-    { titleEn: 'Aartis', titleHi: 'आरती संग्रह', descEn: 'Sacred daily and festive prayer aartis', descHi: 'समस्त देवी-देवताओं की पावन मंगल आरतियां', href: '/aartis', icon: Flame, color: 'border-maroon-300' },
-    { titleEn: 'Chalisa', titleHi: 'चालीसा संग्रह', descEn: 'Forty-verse hymns of divine invocation', descHi: 'कष्ट निवारक एवं फलदायी चालीसा पाठ', href: '/chalisa', icon: BookOpen, color: 'border-amber-300' },
-    { titleEn: 'Mantras', titleHi: 'मंत्र संग्रह', descEn: 'Sacred Vedic and meditative chants', descHi: 'शांति, ज्ञान एवं ऊर्जा प्रदायक वैदिक मंत्र', href: '/mantras', icon: Sun, color: 'border-orange-300' },
-    { titleEn: 'Stotram', titleHi: 'स्तोत्र संग्रह', descEn: 'Powerful praises from sacred scriptures', descHi: 'शिव तांडव व महालक्ष्मी अष्टकम जैसे स्तोत्र', href: '/stotram', icon: Sparkles, color: 'border-rose-300' },
-    { titleEn: 'Shloks', titleHi: 'श्लोक संग्रह', descEn: 'Verses of wisdom, peace and devotion', descHi: 'गीता व उपनिषदों के कल्याणकारी श्लोक', href: '/shloks', icon: ScrollText, color: 'border-stone-300' },
-  ];
 
   return (
     <div className="space-y-12 sm:space-y-20 pb-12">
@@ -162,65 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Festival Special Collection */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-8 pb-3 border-b border-cream-200">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-maroon-700 block mb-1">
-              {language === 'hi' ? 'विशेष उत्सव' : 'Auspicious Festivals'}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-devanagari text-sacred-900">
-              {t('festivalsSpecial')}
-            </h2>
-          </div>
-          <Link
-            href="/festivals"
-            className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-maroon-700 hover:text-saffron-700 transition-colors group"
-          >
-            <span>{t('viewAll')}</span>
-            <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-w-5xl">
-          {festivals.map((festival) => (
-            <FestivalCard key={festival.id} festival={festival} />
-          ))}
-        </div>
-      </section>
-
-      {/* 7. Explore All Devotional Categories */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold font-devanagari text-sacred-900 mb-2">
-            {t('exploreCategories')}
-          </h2>
-          <p className="text-xs sm:text-sm text-sacred-600">
-            {language === 'hi' ? 'अपनी रुचि के अनुसार भक्ति श्रेणी का चयन करें' : 'Select a devotional category to begin reading'}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-w-5xl mx-auto">
-          {categories.map((cat, idx) => (
-            <Link
-              key={idx}
-              href={cat.href}
-              className="group block w-full bg-[#faefe7] hover:bg-[#f5e1d4] active:bg-[#edd0bf] rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 transition-colors duration-150 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
-            >
-              <div className="flex flex-col gap-0.5 min-w-0">
-                <div className="text-sm sm:text-base font-medium text-[#2e2623] group-hover:text-black transition-colors font-devanagari leading-snug truncate">
-                  {language === 'hi' ? cat.titleHi : cat.titleEn}
-                </div>
-                <div className="text-xs sm:text-[13px] text-[#786a63] group-hover:text-[#524640] transition-colors font-devanagari leading-tight truncate">
-                  {language === 'hi' ? cat.descHi : cat.descEn}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 8. About Nav Jyoti Durga Mandal (NJDM) Callout */}
+      {/* 6. About Nav Jyoti Durga Mandal (NJDM) Callout */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-br from-cream-100 via-cream-50 to-saffron-50/50 rounded-3xl border border-cream-300 p-8 sm:p-12 shadow-devotional">
           <div className="max-w-3xl mx-auto text-center space-y-4">

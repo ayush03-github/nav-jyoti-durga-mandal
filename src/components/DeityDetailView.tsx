@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/i18n';
 import { Breadcrumbs } from './Breadcrumbs';
 import { ContentCard } from './ContentCard';
 import { EmptyState } from './EmptyState';
-import { Flame, Music, BookOpen, Sun, Sparkles, ScrollText, ArrowLeft } from 'lucide-react';
+import { Flame, Music, BookOpen, ArrowLeft } from 'lucide-react';
 
 interface DeityDetailViewProps {
   deity: Deity;
@@ -20,9 +20,6 @@ export const DeityDetailView: React.FC<DeityDetailViewProps> = ({ deity, items }
   const bhajans = items.filter(i => i.type === 'bhajan');
   const aartis = items.filter(i => i.type === 'aarti');
   const chalisas = items.filter(i => i.type === 'chalisa');
-  const mantras = items.filter(i => i.type === 'mantra');
-  const stotrams = items.filter(i => i.type === 'stotram');
-  const shloks = items.filter(i => i.type === 'shlok');
 
   const breadcrumbs = [
     { label: language === 'hi' ? 'देवी-देवता' : 'Deities', href: '/deities' },
@@ -126,66 +123,6 @@ export const DeityDetailView: React.FC<DeityDetailViewProps> = ({ deity, items }
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {chalisas.map(item => (
-                  <ContentCard key={item.id} item={item} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Mantras */}
-          {mantras.length > 0 && (
-            <section>
-              <div className="flex items-center gap-2 mb-6 pb-2 border-b border-cream-200">
-                <Sun className="w-5 h-5 text-orange-600" />
-                <h2 className="text-2xl font-bold font-devanagari text-sacred-900">
-                  {language === 'hi' ? `${deity.name} के मंत्र` : `${deity.englishName} Mantras`}
-                </h2>
-                <span className="text-xs font-semibold text-sacred-500 bg-cream-200 px-2.5 py-0.5 rounded-full ml-2">
-                  {mantras.length}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {mantras.map(item => (
-                  <ContentCard key={item.id} item={item} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Stotrams */}
-          {stotrams.length > 0 && (
-            <section>
-              <div className="flex items-center gap-2 mb-6 pb-2 border-b border-cream-200">
-                <Sparkles className="w-5 h-5 text-rose-600" />
-                <h2 className="text-2xl font-bold font-devanagari text-sacred-900">
-                  {language === 'hi' ? `${deity.name} के स्तोत्र` : `${deity.englishName} Stotrams`}
-                </h2>
-                <span className="text-xs font-semibold text-sacred-500 bg-cream-200 px-2.5 py-0.5 rounded-full ml-2">
-                  {stotrams.length}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {stotrams.map(item => (
-                  <ContentCard key={item.id} item={item} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Shloks */}
-          {shloks.length > 0 && (
-            <section>
-              <div className="flex items-center gap-2 mb-6 pb-2 border-b border-cream-200">
-                <ScrollText className="w-5 h-5 text-stone-600" />
-                <h2 className="text-2xl font-bold font-devanagari text-sacred-900">
-                  {language === 'hi' ? `${deity.name} के श्लोक` : `${deity.englishName} Shloks`}
-                </h2>
-                <span className="text-xs font-semibold text-sacred-500 bg-cream-200 px-2.5 py-0.5 rounded-full ml-2">
-                  {shloks.length}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {shloks.map(item => (
                   <ContentCard key={item.id} item={item} />
                 ))}
               </div>

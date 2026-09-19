@@ -1,4 +1,4 @@
-export type ContentType = 'bhajan' | 'aarti' | 'chalisa' | 'mantra' | 'stotram' | 'shlok';
+export type ContentType = 'bhajan' | 'aarti' | 'chalisa';
 
 export interface ContentItem {
   id: string;
@@ -9,6 +9,7 @@ export interface ContentItem {
   deity: string;
   category: string;
   lyrics: string;
+  lyricsEn?: string;
   description: string;
   excerpt: string;
   keywords: string[];

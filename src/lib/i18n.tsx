@@ -29,8 +29,8 @@ export const translations: Translations = {
   // Hero & Search
   heroTitle: { en: "Sacred Devotional Collection", hi: "पावन भक्ति एवं स्तुति संग्रह" },
   heroSubtitle: {
-    en: "Explore sacred Hindi bhajans, aartis, chalisas, mantras, stotrams and festival collections with pure devotion.",
-    hi: "नव ज्योति दुर्गा मंडल के पावन संग्रह से प्रामाणिक हिंदी भजन, आरती, चालीसा, स्तोत्र एवं उत्सव संग्रह का पठन करें।"
+    en: "Explore sacred Hindi bhajans, aartis, chalisas and festival collections with pure devotion.",
+    hi: "नव ज्योति दुर्गा मंडल के पावन संग्रह से प्रामाणिक हिंदी भजन, आरती, चालीसा एवं उत्सव संग्रह का पठन करें。"
   },
   searchPlaceholder: { en: "Search bhajans, aartis, chalisas, deities...", hi: "भजन, आरती, चालीसा, भगवान का नाम खोजें..." },
   searchButton: { en: "Search", hi: "खोजें" },

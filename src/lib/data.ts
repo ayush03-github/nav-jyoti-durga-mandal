@@ -5,17 +5,11 @@ import festivalsData from '@/data/festivals.json';
 import bhajansData from '@/data/bhajans.json';
 import aartisData from '@/data/aartis.json';
 import chalisasData from '@/data/chalisas.json';
-import mantrasData from '@/data/mantras.json';
-import stotramsData from '@/data/stotrams.json';
-import shloksData from '@/data/shloks.json';
 
 const allContentList: ContentItem[] = [
   ...(bhajansData as ContentItem[]),
   ...(aartisData as ContentItem[]),
   ...(chalisasData as ContentItem[]),
-  ...(mantrasData as ContentItem[]),
-  ...(stotramsData as ContentItem[]),
-  ...(shloksData as ContentItem[]),
 ];
 
 export function getSiteConfig(): SiteConfig {
@@ -122,8 +116,9 @@ export function searchContent(query: string, filterType?: string, filterDeity?: 
     const categoryMatch = item.category.toLowerCase().includes(cleanQuery);
     const descMatch = item.description.toLowerCase().includes(cleanQuery);
     const lyricsSnippetMatch = item.lyrics.toLowerCase().includes(cleanQuery);
+    const lyricsEnMatch = item.lyricsEn ? item.lyricsEn.toLowerCase().includes(cleanQuery) : false;
     const keywordsMatch = item.keywords.some(k => k.toLowerCase().includes(cleanQuery));
 
-    return titleMatch || engTitleMatch || deityMatch || categoryMatch || descMatch || keywordsMatch || lyricsSnippetMatch;
+    return titleMatch || engTitleMatch || deityMatch || categoryMatch || descMatch || keywordsMatch || lyricsSnippetMatch || lyricsEnMatch;
   });
 }

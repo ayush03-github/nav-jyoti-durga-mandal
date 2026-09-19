@@ -36,9 +36,6 @@ export function LyricsReader({ item }: LyricsReaderProps) {
       case 'bhajan': return { href: '/bhajans', label: t('bhajans') };
       case 'aarti': return { href: '/aartis', label: t('aartis') };
       case 'chalisa': return { href: '/chalisa', label: t('chalisa') };
-      case 'mantra': return { href: '/mantras', label: t('mantras') };
-      case 'stotram': return { href: '/stotram', label: t('stotram') };
-      case 'shlok': return { href: '/shloks', label: t('shloks') };
       default: return { href: '/bhajans', label: t('bhajans') };
     }
   };
@@ -48,9 +45,6 @@ export function LyricsReader({ item }: LyricsReaderProps) {
       case 'bhajan': return '/bhajans';
       case 'aarti': return '/aartis';
       case 'chalisa': return '/chalisa';
-      case 'mantra': return '/mantras';
-      case 'stotram': return '/stotram';
-      case 'shlok': return '/shloks';
       default: return '/bhajans';
     }
   };

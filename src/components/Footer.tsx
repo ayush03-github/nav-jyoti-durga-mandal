@@ -13,9 +13,6 @@ export const Footer: React.FC = () => {
     { href: '/bhajans', labelKey: 'bhajans' },
     { href: '/aartis', labelKey: 'aartis' },
     { href: '/chalisa', labelKey: 'chalisa' },
-    { href: '/mantras', labelKey: 'mantras' },
-    { href: '/stotram', labelKey: 'stotram' },
-    { href: '/shloks', labelKey: 'shloks' },
   ];
 
   const exploreLinks = [

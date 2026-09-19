@@ -17,11 +17,6 @@ export const Header: React.FC = () => {
     { href: '/bhajans', labelKey: 'bhajans' },
     { href: '/aartis', labelKey: 'aartis' },
     { href: '/chalisa', labelKey: 'chalisa' },
-    { href: '/mantras', labelKey: 'mantras' },
-    { href: '/stotram', labelKey: 'stotram' },
-    { href: '/shloks', labelKey: 'shloks' },
-    { href: '/deities', labelKey: 'deities' },
-    { href: '/festivals', labelKey: 'festivals' },
     { href: '/about', labelKey: 'about' },
   ];
 
@@ -61,7 +56,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-1 lg:space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -92,11 +87,11 @@ export const Header: React.FC = () => {
               <LanguageToggle />
             </div>
 
-            {/* Hamburger: hidden on mobile (< sm), visible on tablet (sm to xl) */}
+            {/* Hamburger: hidden on mobile (< sm), visible on tablet (sm to lg) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="hidden sm:flex xl:hidden p-2 rounded-lg text-sacred-700 hover:text-maroon-800 hover:bg-cream-200 transition-colors focus:outline-none focus:ring-2 focus:ring-saffron-500 items-center justify-center"
+              className="hidden sm:flex lg:hidden p-2 rounded-lg text-sacred-700 hover:text-maroon-800 hover:bg-cream-200 transition-colors focus:outline-none focus:ring-2 focus:ring-saffron-500 items-center justify-center"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -105,9 +100,9 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Menu Dropdown Drawer: hidden on mobile (< sm), only for tablet (sm to xl) */}
+      {/* Menu Dropdown Drawer: hidden on mobile (< sm), only for tablet (sm to lg) */}
       {mobileMenuOpen && (
-        <div className="hidden sm:block xl:hidden bg-cream-50 border-b border-cream-200 px-4 pt-2 pb-6 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 shadow-lg">
+        <div className="hidden sm:block lg:hidden bg-cream-50 border-b border-cream-200 px-4 pt-2 pb-6 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 shadow-lg">
           <div className="grid grid-cols-2 gap-2 pt-1 pb-3">
             {navItems.map((item) => (
               <Link

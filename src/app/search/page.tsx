@@ -39,9 +39,6 @@ function SearchContent() {
     { value: 'bhajan', labelEn: 'Bhajan', labelHi: 'भजन' },
     { value: 'aarti', labelEn: 'Aarti', labelHi: 'आरती' },
     { value: 'chalisa', labelEn: 'Chalisa', labelHi: 'चालीसा' },
-    { value: 'mantra', labelEn: 'Mantra', labelHi: 'मंत्र' },
-    { value: 'stotram', labelEn: 'Stotram', labelHi: 'स्तोत्र' },
-    { value: 'shlok', labelEn: 'Shlok', labelHi: 'श्लोक' },
   ];
 
   const breadcrumbs = [

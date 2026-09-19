@@ -9,9 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/bhajans',
     '/aartis',
     '/chalisa',
-    '/mantras',
-    '/stotram',
-    '/shloks',
     '/deities',
     '/festivals',
     '/search',
@@ -28,9 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     let prefix = '/bhajans';
     if (item.type === 'aarti') prefix = '/aartis';
     else if (item.type === 'chalisa') prefix = '/chalisa';
-    else if (item.type === 'mantra') prefix = '/mantras';
-    else if (item.type === 'stotram') prefix = '/stotram';
-    else if (item.type === 'shlok') prefix = '/shloks';
 
     return {
       url: `${baseUrl}${prefix}/${item.slug}`,

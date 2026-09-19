@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/i18n';
 import { Breadcrumbs } from './Breadcrumbs';
 import { ContentCard } from './ContentCard';
 import { EmptyState } from './EmptyState';
-import { Sparkles, Calendar, ArrowLeft, Flame, Music, BookOpen, Sun } from 'lucide-react';
+import { Sparkles, Calendar, ArrowLeft, Flame, Music, BookOpen } from 'lucide-react';
 
 interface FestivalDetailViewProps {
   festival: Festival;
@@ -20,8 +20,6 @@ export const FestivalDetailView: React.FC<FestivalDetailViewProps> = ({ festival
   const bhajans = items.filter(i => i.type === 'bhajan');
   const aartis = items.filter(i => i.type === 'aarti');
   const chalisas = items.filter(i => i.type === 'chalisa');
-  const mantras = items.filter(i => i.type === 'mantra');
-  const otherItems = items.filter(i => i.type === 'stotram' || i.type === 'shlok');
 
   const breadcrumbs = [
     { label: language === 'hi' ? 'पर्व एवं उत्सव' : 'Festivals', href: '/festivals' },
@@ -126,23 +124,6 @@ export const FestivalDetailView: React.FC<FestivalDetailViewProps> = ({ festival
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {chalisas.map(item => (
-                  <ContentCard key={item.id} item={item} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Mantras & Others */}
-          {(mantras.length > 0 || otherItems.length > 0) && (
-            <section>
-              <div className="flex items-center gap-2 mb-6 pb-2 border-b border-cream-200">
-                <Sun className="w-5 h-5 text-orange-600" />
-                <h2 className="text-2xl font-bold font-devanagari text-sacred-900">
-                  {language === 'hi' ? 'मंत्र एवं स्तोत्र' : 'Mantras & Stotrams'}
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[...mantras, ...otherItems].map(item => (
                   <ContentCard key={item.id} item={item} />
                 ))}
               </div>

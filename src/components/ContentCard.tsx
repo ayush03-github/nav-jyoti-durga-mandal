@@ -20,9 +20,6 @@ export const ContentCard: React.FC<ContentCardProps> = ({ item }) => {
       case 'bhajan': return '/bhajans';
       case 'aarti': return '/aartis';
       case 'chalisa': return '/chalisa';
-      case 'mantra': return '/mantras';
-      case 'stotram': return '/stotram';
-      case 'shlok': return '/shloks';
       default: return '/bhajans';
     }
   };
