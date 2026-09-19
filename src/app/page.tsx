@@ -5,11 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n';
 import { HeroSection } from '@/components/HeroSection';
 import { ContentCard } from '@/components/ContentCard';
-import { DeityCard } from '@/components/DeityCard';
-import { 
-  getContentByType, 
-  getAllDeities 
-} from '@/lib/data';
+import { getContentByType } from '@/lib/data';
 import { 
   Flame, 
   BookOpen, 
@@ -23,16 +19,17 @@ export default function HomePage() {
   const bhajans = getContentByType('bhajan');
   const aartis = getContentByType('aarti').slice(0, 4);
   const chalisas = getContentByType('chalisa').slice(0, 4);
-  const deities = getAllDeities().filter(d => d.featured !== false).slice(0, 6);
 
   return (
-    <div className="space-y-12 sm:space-y-20 pb-12">
+    <div className="w-full">
       
       {/* 1. Dedicated Devotional Hero Section */}
       <HeroSection />
 
-      {/* 2. Popular / Featured Bhajans */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. Main Page Content */}
+      <div className="space-y-12 sm:space-y-20 pb-12 pt-8 sm:pt-16">
+        {/* Popular / Featured Bhajans */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-6 sm:mb-8 pb-3 border-b border-cream-200">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-saffron-700 mb-1">
@@ -115,36 +112,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Browse by Deity */}
-      <section className="bg-cream-100/60 py-12 border-y border-cream-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8 pb-3 border-b border-cream-200">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-saffron-700 block mb-1">
-                {language === 'hi' ? 'ईष्ट देव' : 'Divine Deities'}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-devanagari text-sacred-900">
-                {t('browseByDeity')}
-              </h2>
-            </div>
-            <Link
-              href="/deities"
-              className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-maroon-700 hover:text-saffron-700 transition-colors group"
-            >
-              <span>{t('viewAll')}</span>
-              <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-w-5xl">
-            {deities.map((deity) => (
-              <DeityCard key={deity.id} deity={deity} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. About Nav Jyoti Durga Mandal (NJDM) Callout */}
+      {/* 5. About Nav Jyoti Durga Mandal (NJDM) Callout */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-br from-cream-100 via-cream-50 to-saffron-50/50 rounded-3xl border border-cream-300 p-8 sm:p-12 shadow-devotional">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -158,8 +126,8 @@ export default function HomePage() {
 
             <p className="text-sm sm:text-base text-sacred-700 leading-relaxed font-devanagari">
               {language === 'hi' 
-                ? 'नव ज्योति दुर्गा मंडल का उद्देश्य सनातन भक्ति परंपरा, मधुर भजनों, आरतियों, चालीसा एवं वेदोक्त मंत्रों को उनके मूल, प्रामाणिक एवं शुद्ध रूप में प्रस्तुत व संरक्षित करना है।'
-                : 'Nav Jyoti Durga Mandal is committed to presenting and preserving sacred devotional hymns, aartis, chalisas, and Vedic chants in their purest and most authentic traditional form.'
+                ? 'नव ज्योति दुर्गा मंडल का उद्देश्य सनातन भक्ति परंपरा, मधुर भजनों, आरतियों एवं पावन चालीसा संग्रह को उनके मूल, प्रामाणिक एवं शुद्ध रूप में प्रस्तुत व संरक्षित करना है।'
+                : 'Nav Jyoti Durga Mandal is committed to presenting and preserving sacred devotional hymns, aartis, and chalisas in their purest and most authentic traditional form.'
               }
             </p>
 
@@ -180,6 +148,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </div>
 
     </div>
   );

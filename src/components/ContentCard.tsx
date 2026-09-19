@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { ContentItem } from '@/lib/types';
 import { useLanguage } from '@/lib/i18n';
-import { getAllDeities } from '@/lib/data';
 
 interface ContentCardProps {
   item: ContentItem;
@@ -12,8 +11,6 @@ interface ContentCardProps {
 
 export const ContentCard: React.FC<ContentCardProps> = ({ item }) => {
   const { language } = useLanguage();
-  const deities = getAllDeities();
-  const deityObj = deities.find(d => d.slug === item.deity || d.id === item.deity);
 
   const getRoutePrefix = (type: string) => {
     switch (type) {
@@ -25,13 +22,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({ item }) => {
   };
 
   const link = `${getRoutePrefix(item.type)}/${item.slug}`;
-
-  // Title line: {Deity} {Title}
-  const deityPrefix = deityObj
-    ? (language === 'hi' ? deityObj.name : deityObj.englishName)
-    : '';
-  const titleText = language === 'en' && item.englishTitle ? item.englishTitle : item.title;
-  const displayTitle = deityPrefix ? `${deityPrefix} ${titleText}` : titleText;
+  const displayTitle = language === 'en' && item.englishTitle ? item.englishTitle : item.title;
 
   // Second line: lyrics snippet in a slightly smaller font
   const rawLyrics = item.excerpt || item.lyrics || '';

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ContentItem } from '@/lib/types';
 import { useLanguage } from '@/lib/i18n';
-import { getAllDeities, getRelatedContent } from '@/lib/data';
+import { getRelatedContent } from '@/lib/data';
 import { 
   Copy, 
   Check, 
@@ -27,8 +27,6 @@ export function LyricsReader({ item }: LyricsReaderProps) {
   const [copied, setCopied] = useState(false);
   const [shareToast, setShareToast] = useState(false);
 
-  const deities = getAllDeities();
-  const deityObj = deities.find(d => d.slug === item.deity || d.id === item.deity);
   const relatedItems = getRelatedContent(item, 4);
 
   const getCategoryPath = (type: string) => {
@@ -147,15 +145,6 @@ export function LyricsReader({ item }: LyricsReaderProps) {
           <span className="text-xs font-bold px-3 py-1 rounded-full bg-saffron-100 text-saffron-800 border border-saffron-200 uppercase tracking-wider">
             {item.category}
           </span>
-          {deityObj && (
-            <Link
-              href={`/deities/${deityObj.slug}`}
-              className="text-xs font-medium text-sacred-700 hover:text-maroon-700 bg-cream-200/70 px-3 py-1 rounded-full border border-cream-300 flex items-center gap-1.5 transition-colors"
-            >
-              <Flame className="w-3.5 h-3.5 text-saffron-600" />
-              <span>{language === 'hi' ? deityObj.name : deityObj.englishName}</span>
-            </Link>
-          )}
         </div>
 
         {/* Main Sacred Title */}

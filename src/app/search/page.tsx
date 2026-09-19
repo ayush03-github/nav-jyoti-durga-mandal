@@ -3,25 +3,21 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/lib/i18n';
-import { searchContent, getAllDeities } from '@/lib/data';
+import { searchContent } from '@/lib/data';
 import { ContentCard } from '@/components/ContentCard';
 import { SearchBar } from '@/components/SearchBar';
 import { EmptyState } from '@/components/EmptyState';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Search, Filter, Flame, Sparkles } from 'lucide-react';
 
 function SearchContent() {
   const { language, t } = useLanguage();
   const searchParams = useSearchParams();
-  const deities = getAllDeities();
 
   const initialQ = searchParams.get('q') || '';
   const initialType = searchParams.get('type') || 'all';
-  const initialDeity = searchParams.get('deity') || 'all';
 
   const [query, setQuery] = useState(initialQ);
   const [selectedType, setSelectedType] = useState(initialType);
-  const [selectedDeity, setSelectedDeity] = useState(initialDeity);
 
   useEffect(() => {
     const qParam = searchParams.get('q');
@@ -31,8 +27,8 @@ function SearchContent() {
   }, [searchParams]);
 
   const results = useMemo(() => {
-    return searchContent(query, selectedType, selectedDeity);
-  }, [query, selectedType, selectedDeity]);
+    return searchContent(query, selectedType);
+  }, [query, selectedType]);
 
   const categories = [
     { value: 'all', labelEn: 'All Categories', labelHi: 'सभी श्रेणियां' },
@@ -56,8 +52,8 @@ function SearchContent() {
         </h1>
         <p className="text-sm sm:text-base text-sacred-600 font-devanagari">
           {language === 'hi' 
-            ? 'भजन, आरती, चालीसा, मंत्र या अपने ईष्ट देव के नाम से खोजें।' 
-            : 'Find bhajans, aartis, chalisas, mantras or chants by keyword or deity.'}
+            ? 'भजन, आरती, चालीसा या लिरिक्स के शब्दों से खोजें।' 
+            : 'Search our collection of bhajans, aartis, and chalisas by title, lyrics, or keywords.'}
         </p>
       </div>
 
@@ -71,17 +67,17 @@ function SearchContent() {
           autoFocus={!initialQ}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-cream-200/70 items-center">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-cream-200/70">
           
           {/* Category Dropdown */}
-          <div>
-            <label className="block text-[11px] font-bold uppercase tracking-wider text-sacred-500 mb-1">
-              {t('categories')}
+          <div className="flex items-center gap-2 min-w-[200px]">
+            <label className="text-xs font-bold uppercase tracking-wider text-sacred-600">
+              {t('categories')}:
             </label>
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full bg-cream-100 text-sacred-800 text-xs sm:text-sm font-medium rounded-xl border border-cream-300 px-3 py-2 focus:border-saffron-500 focus:outline-none"
+              className="bg-cream-100 text-sacred-800 text-xs sm:text-sm font-medium rounded-xl border border-cream-300 px-3 py-2 focus:border-saffron-500 focus:outline-none"
             >
               {categories.map((cat) => (
                 <option key={cat.value} value={cat.value}>
@@ -91,38 +87,18 @@ function SearchContent() {
             </select>
           </div>
 
-          {/* Deity Dropdown */}
-          <div>
-            <label className="block text-[11px] font-bold uppercase tracking-wider text-sacred-500 mb-1">
-              {t('filterByDeity')}
-            </label>
-            <select
-              value={selectedDeity}
-              onChange={(e) => setSelectedDeity(e.target.value)}
-              className="w-full bg-cream-100 text-sacred-800 text-xs sm:text-sm font-medium rounded-xl border border-cream-300 px-3 py-2 focus:border-saffron-500 focus:outline-none"
-            >
-              <option value="all">{t('filterAll')}</option>
-              {deities.map((d) => (
-                <option key={d.slug} value={d.slug}>
-                  {language === 'hi' ? d.name : d.englishName}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Reset Filters */}
-          <div className="sm:col-span-2 flex items-end justify-between sm:justify-end gap-3 pt-4 sm:pt-0">
+          {/* Result Count & Reset */}
+          <div className="flex items-center gap-3">
             <span className="text-xs font-semibold text-sacred-600 bg-cream-200/70 px-3 py-1.5 rounded-full border border-cream-300">
               <span className="font-bold text-maroon-800">{results.length}</span> {t('resultsCount')}
             </span>
 
-            {(query || selectedType !== 'all' || selectedDeity !== 'all') && (
+            {(query || selectedType !== 'all') && (
               <button
                 type="button"
                 onClick={() => {
                   setQuery('');
                   setSelectedType('all');
-                  setSelectedDeity('all');
                 }}
                 className="text-xs font-semibold text-maroon-700 hover:text-maroon-900 underline transition-colors"
               >
@@ -145,7 +121,6 @@ function SearchContent() {
           onReset={() => {
             setQuery('');
             setSelectedType('all');
-            setSelectedDeity('all');
           }}
         />
       )}

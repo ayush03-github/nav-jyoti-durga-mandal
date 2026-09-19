@@ -18,33 +18,24 @@ export const translations: Translations = {
   bhajans: { en: "Bhajans", hi: "भजन" },
   aartis: { en: "Aartis", hi: "आरती" },
   chalisa: { en: "Chalisa", hi: "चालीसा" },
-  mantras: { en: "Mantras", hi: "मंत्र" },
-  stotram: { en: "Stotram", hi: "स्तोत्र" },
-  shloks: { en: "Shloks", hi: "श्लोक" },
-  deities: { en: "Deities", hi: "देवी-देवता" },
-  festivals: { en: "Festivals", hi: "पर्व एवं उत्सव" },
   about: { en: "About NJDM", hi: "परिचय" },
   search: { en: "Search", hi: "खोजें" },
 
   // Hero & Search
   heroTitle: { en: "Sacred Devotional Collection", hi: "पावन भक्ति एवं स्तुति संग्रह" },
   heroSubtitle: {
-    en: "Explore sacred Hindi bhajans, aartis, chalisas and festival collections with pure devotion.",
-    hi: "नव ज्योति दुर्गा मंडल के पावन संग्रह से प्रामाणिक हिंदी भजन, आरती, चालीसा एवं उत्सव संग्रह का पठन करें。"
+    en: "Explore sacred Hindi bhajans, aartis, and chalisas with pure devotion.",
+    hi: "नव ज्योति दुर्गा मंडल के पावन संग्रह से प्रामाणिक हिंदी भजन, आरती एवं चालीसा का पठन करें।"
   },
-  searchPlaceholder: { en: "Search bhajans, aartis, chalisas, deities...", hi: "भजन, आरती, चालीसा, भगवान का नाम खोजें..." },
+  searchPlaceholder: { en: "Search bhajans, aartis, chalisas...", hi: "भजन, आरती, चालीसा खोजें..." },
   searchButton: { en: "Search", hi: "खोजें" },
   quickFilters: { en: "Quick Filters", hi: "त्वरित चयन" },
   allCategories: { en: "All Categories", hi: "सभी श्रेणियां" },
-  allDeities: { en: "All Deities", hi: "सभी देवी-देवता" },
 
   // Sections
   featuredBhajans: { en: "Popular & Featured Bhajans", hi: "लोकप्रिय एवं प्रमुख भजन" },
   featuredAartis: { en: "Sacred Aarti Collection", hi: "आरती संग्रह" },
   featuredChalisa: { en: "Divine Chalisa Sangrah", hi: "चालीसा संग्रह" },
-  browseByDeity: { en: "Browse by Deity", hi: "देवी-देवताओं के अनुसार देखें" },
-  festivalsSpecial: { en: "Festival Special Collections", hi: "पर्व एवं उत्सव विशेष संग्रह" },
-  exploreCategories: { en: "Explore All Devotional Categories", hi: "सभी भक्ति श्रेणियां देखें" },
   viewAll: { en: "View All", hi: "सभी देखें" },
   readLyrics: { en: "Read Lyrics", hi: "पढ़ें" },
   readMore: { en: "Read Full Text", hi: "संपूर्ण पाठ पढ़ें" },

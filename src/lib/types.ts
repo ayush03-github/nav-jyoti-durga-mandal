@@ -6,43 +6,19 @@ export interface ContentItem {
   englishTitle?: string;
   slug: string;
   type: ContentType;
-  deity: string;
   category: string;
   lyrics: string;
   lyricsEn?: string;
   description: string;
   excerpt: string;
   keywords: string[];
+  deity?: string;
   festival?: string[];
   image?: string;
   youtubeUrl?: string;
   audioUrl?: string;
   featured?: boolean;
   published?: boolean;
-}
-
-export interface Deity {
-  id: string;
-  name: string;
-  englishName: string;
-  slug: string;
-  description: string;
-  descriptionEn: string;
-  color?: string;
-  featured?: boolean;
-  image?: string;
-}
-
-export interface Festival {
-  id: string;
-  name: string;
-  englishName: string;
-  slug: string;
-  description: string;
-  descriptionEn: string;
-  featured?: boolean;
-  image?: string;
-  deity?: string;
 }
 
 export interface SiteConfig {

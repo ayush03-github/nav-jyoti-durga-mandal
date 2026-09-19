@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllContent, getAllDeities, getAllFestivals } from '@/lib/data';
+import { getAllContent } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://njdm.org';
@@ -9,8 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/bhajans',
     '/aartis',
     '/chalisa',
-    '/deities',
-    '/festivals',
     '/search',
     '/about',
   ].map(route => ({
@@ -34,21 +32,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const deities = getAllDeities();
-  const deityPages = deities.map(d => ({
-    url: `${baseUrl}/deities/${d.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  const festivals = getAllFestivals();
-  const festivalPages = festivals.map(f => ({
-    url: `${baseUrl}/festivals/${f.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  return [...staticPages, ...contentPages, ...deityPages, ...festivalPages];
+  return [...staticPages, ...contentPages];
 }
