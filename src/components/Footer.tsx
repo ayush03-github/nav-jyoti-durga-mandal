@@ -15,12 +15,12 @@ export const Footer: React.FC = () => {
     { href: '/chalisa', labelKey: 'chalisa' },
   ];
 
-  const exploreLinks = [
-    { href: '/deities', labelKey: 'deities' },
-    { href: '/festivals', labelKey: 'festivals' },
-    { href: '/search', labelKey: 'search' },
-    { href: '/about', labelKey: 'about' },
-  ];
+  // const exploreLinks = [
+  //   { href: '/deities', labelKey: 'deities' },
+  //   { href: '/festivals', labelKey: 'festivals' },
+  //   { href: '/search', labelKey: 'search' },
+  //   { href: '/about', labelKey: 'about' },
+  // ];
 
   return (
     <footer className="bg-gradient-to-b from-cream-100 to-cream-200/90 border-t border-cream-300 text-sacred-800 pt-12 pb-24 sm:pb-8 mt-16">
@@ -38,9 +38,6 @@ export const Footer: React.FC = () => {
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg text-sacred-900 leading-tight">
                   {t('siteTitle')}
-                </span>
-                <span className="text-[11px] font-semibold tracking-wider text-saffron-700 uppercase">
-                  {t('siteShort')}
                 </span>
               </div>
             </Link>
@@ -75,7 +72,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Explore & Collections */}
-          <div>
+          {/* <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-maroon-800 mb-4 font-devanagari flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-saffron-600" />
               <span>{t('quickLinks')}</span>
@@ -92,7 +89,7 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Organization & Respect Note */}
           <div className="space-y-3">
