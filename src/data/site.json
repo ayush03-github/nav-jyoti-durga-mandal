@@ -1,0 +1,30 @@
+{
+  "name": "Nav Jyoti Durga Mandal",
+  "shortName": "NJDM",
+  "taglineEn": "Devotional lyrics, sacred chants, and spiritual heritage",
+  "taglineHi": "भक्ति भजन, आरती, चालीसा एवं पावन मंत्र संग्रह",
+  "descriptionEn": "Explore sacred Hindi bhajans, aartis, chalisas, mantras, stotrams and festival collections presented cleanly with pure devotional lyrics.",
+  "descriptionHi": "नव ज्योति दुर्गा मंडल के पावन संग्रह से हिंदी भजन, आरती, चालीसा, मंत्र, स्तोत्र एवं उत्सव संग्रह का आनंद लें।",
+  "logo": "",
+  "contact": {
+    "email": "info@njdm.org",
+    "note": "// TODO: Replace with official NJDM contact information"
+  },
+  "social": {
+    "youtube": "https://youtube.com/@njdm-placeholder",
+    "instagram": "https://instagram.com/njdm-placeholder",
+    "facebook": "https://facebook.com/njdm-placeholder"
+  },
+  "navLinks": [
+    { "nameEn": "Home", "nameHi": "होम", "href": "/" },
+    { "nameEn": "Bhajans", "nameHi": "भजन", "href": "/bhajans" },
+    { "nameEn": "Aartis", "nameHi": "आरती", "href": "/aartis" },
+    { "nameEn": "Chalisa", "nameHi": "चालीसा", "href": "/chalisa" },
+    { "nameEn": "Mantras", "nameHi": "मंत्र", "href": "/mantras" },
+    { "nameEn": "Stotram", "nameHi": "स्तोत्र", "href": "/stotram" },
+    { "nameEn": "Shloks", "nameHi": "श्लोक", "href": "/shloks" },
+    { "nameEn": "Deities", "nameHi": "देवी-देवता", "href": "/deities" },
+    { "nameEn": "Festivals", "nameHi": "पर्व एवं उत्सव", "href": "/festivals" },
+    { "nameEn": "About", "nameHi": "परिचय", "href": "/about" }
+  ]
+}
